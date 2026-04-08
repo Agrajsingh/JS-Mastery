@@ -1,0 +1,96 @@
+/*variable (var let and const)
+var => 
+can re declare
+can re design 
+it is functional scoped
+
+example => var x = 10
+ var x = 10
+ x = 10  
+
+*/
+/*
+let=>
+    blocked scopes {}
+can not be re declare
+can be re design
+example => let x = 10
+x = 20
+let x = 30 ---> not allowed
+
+ */
+
+/*
+const=>
+    blocked scope {}
+can not be re declare
+can not be re design
+example=> const x = 80
+x=10 ---> not allowed
+const x=11 ---> not allowed
+ */
+
+/*
+Primitive data types
+
+Number--> 1,2,3
+String-->"rahul", "agraj" "ten"
+Boolean--> true false , yes no
+null--> 
+{
+let data = null
+console.log(typeof data) // object
+this is historical bug in JavaScript 
+}
+undefined-->
+BigInt-->3756757982301n
+Symbol-->
+*/
+
+/*
+ Difference between =,==,===
+ x=10 ---> store 10 in x
+ "10"==10 ---> true loose compare
+ "10"===10 ----> false strict comparision
+*/
+/**
+ Coercion
+ Rule 1 => {+} If any operand is string → result becomes string
+ console.log("5" + 2);     // "52"
+console.log("5" + true);  // "5true"
+Rule 2 => -, *, /, % → convert everything to number
+console.log("5" - 2);   // 3
+console.log("10" * 2);  // 20
+Rule 3 => Boolean conversion
+true ->1, false -> 0
+console.log(true + 1);  // 2
+console.log(false + 1); // 1
+Rule 3 => undefined and null to study
+ */
+/**
+ operators
+| Operator | Meaning             | Example       |
+| -------- | ------------------- | ------------- |
+| `+`      | Addition            | `5 + 2 = 7`   |
+| `-`      | Subtraction         | `5 - 2 = 3`   |
+| `*`      | Multiplication      | `5 * 2 = 10`  |
+| `/`      | Division            | `5 / 2 = 2.5` |
+| `%`      | Modulus (remainder) | `5 % 2 = 1`   |
+| `**`     | Exponent            | `2 ** 3 = 8`  |
+| Operator | Example  | Meaning   |
+| -------- | -------- | --------- |
+| `=`      | `x = 5`  | assign    |
+| `+=`     | `x += 2` | x = x + 2 |
+| `-=`     | `x -= 2` | x = x - 2 |
+| `*=`     | `x *= 2` | x = x * 2 |
+| `/=`     | `x /= 2` | x = x / 2 |
+| Operator | Meaning          | Example             |
+| -------- | ---------------- | ------------------- | 
+| `!=`     | not equal        | `5 != 4` → true     |
+| `!==`    | strict not equal | `5 !== "5"` → true  |
+| `>`      | greater than     | `5 > 3`             |
+| `<`      | less than        | `5 < 3`             |
+| `>=`     | greater or equal | `5 >= 5`            |
+| `<=`     | less or equal    | `5 <= 3`            |
+
+ */

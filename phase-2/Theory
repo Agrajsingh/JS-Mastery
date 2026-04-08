@@ -1,0 +1,90 @@
+/*
+Scope in js
+1-> Global Scope
+Variables declared outside any function or block are accessible everywhere in the program
+ex let name = agraj
+function greet(){
+    console.log(name)
+}
+    greet()
+
+2-> functional scope
+Declared inside a function can not be access outside the function
+ex function print(){
+let x = 10
+console.log(x)
+}
+console.log(x)----> give error
+3 -> Blocked scope 
+Variables declared inside { } using let or const can not be accessed outside the block ie bracket
+var is function scoped, not block scoped
+
+4--> lexical scope 
+inner function can access variable from outer function
+ex
+function outer(){
+let x = hello
+function inner(){
+console.log(x)
+}
+  
+Closure property in js
+
+A closure is when a function remembers and can access variables from its outer (parent) scope even after that outer function has finished executing.
+in shot ------------> Closure = function + its lexical environment (memory of outer variables)
+
+function greet(name) {
+  return function() {
+    console.log("Hello " + name);
+  };
+}
+
+const sayHi = greet("Agraj");
+sayHi(); // Hello Agraj
+}
+
+Arrow function 
+Arrow functions are a shorter way to write functions but Arrow function’s this is lexically bound
+in shot ----> Arrow functions do NOT have their own this. They take this from surrounding scope or parent
+
+ex function Person() {
+  this.name = "Agraj";
+
+  setTimeout(function () {               here set timeout is normal function and have its own this in this case it is undefined
+    console.log(this.name);
+  }, 1000);
+}
+
+new Person(); // undefined ❌
+
+
+function Person() {
+  this.name = "Agraj";
+
+  setTimeout(() => {
+    console.log(this.name);           set timeout is arrowfunction and do not have there own this they take there  parents that is person function this
+  }, 1000);
+}
+
+new Person(); // Agraj ✅
+
+
+
+Function declarations vs expressions
+
+“Function declarations are fully hoisted and can be called before definition, whereas function expressions are not fully hoisted because they are assigned to variables, so they cannot be invoked before initialization.”
+ 
+sayHi(); // ❌
+
+var sayHi = function () {
+  console.log("Hi");
+};
+
+sayHi(); // ✅
+
+function sayHi() {
+  console.log("Hi");
+}
+
+
+*/
