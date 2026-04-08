@@ -1,0 +1,100 @@
+/*
+OBJECTS IN JS
+An object is a collection of key–value pairs.
+ex const user = {
+    name: "rahul",
+    class: "9",
+    emglish marks: "20"
+}
+
+How to Create Objects
+--> objects are created generally by 2 methods
+1->Object Literal (NOT Singleton)
+ex-> const car = {
+  brand: "BMW",
+  model: "X5"
+};
+2->Using Constructor (Singleton Behavior)
+const obj = new object()
+obj.name = rahul
+
+
+Prototype chain
+
+When we try to access a property on an object,JS first looks inside the object.
+If not found → it looks in its prototype → then prototype’s prototype → and so on.
+This lookup process is called the prototype chain.
+
+every js object has a hidden property
+
+user → user.__proto__ → Object.prototype → null
+example-->const arr = [1, 2, 3];
+arr → Array.prototype → Object.prototype → null
+
+In JavaScript, arrays, strings, and functions are all objects
+But they are special types of objects
+
+arr → Array.prototype → Object.prototype → null  ---> array
+greet → Function.prototype → Object.prototype → null---->function
+
+Auto-boxing = JavaScript automatically converts a primitive into an object temporarily when you try to use methods on it.
+
+
+Constructor Function
+A constructor function is a normal function used to create multiple objects with the same structure (template/blueprint).
+example
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const p1 = new Person("Agraj", 22);
+const p2 = new Person("Rahul", 25);
+
+Role of new Keyword
+function Person(name) {
+  this.name = name;
+}
+
+const p1 = Person("Agraj"); // ❌
+this will point to:
+window (non-strict)
+undefined (strict mode)
+ So always use new
+
+ | Feature           | Constructor Function    | Factory Function |
+| ----------------- | ----------------------- | ---------------- |
+| `new` keyword     | Required                | Not required     |
+| `this` usage      | Yes                     | No               |
+| Return value      | Automatic               | Manual           |
+| Prototype         | Yes                     | No (by default)  |
+| Memory efficiency | Better (shared methods) | Can be worse     |
+| Simplicity        | Medium                  | Easy             |
+
+
+this in JavaScript
+
+this is used to refer to the current object that is executing the function.
+👉 In simple words:
+this helps you access and manipulate data of the object you're working with
+
+use of this --->
+Avoid hardcoding object names
+ Enable reusability
+ Provide dynamic context
+example---->
+ const user = {
+  name: "Agraj",
+  greet() {
+    console.log(this.name);
+  }
+};
+
+const fn = user.greet;
+fn(); // undefined ❌
+
+A function was originally part of an object,
+ but when you call it separately, it no longer knows which object it belongs to
+So this becomes wrong (or undefined).
+
+*/
