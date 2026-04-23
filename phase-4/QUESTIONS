@@ -1,0 +1,46 @@
+/*
+DEEP COPY AND SHALLOW COPY
+
+EX 1=>  const a = { x: 10 };
+const b = a;
+b.x = 20;
+console.log(a.x);
+
+👉 Answer: 20
+
+👉 Why?
+b is not a copy. It points to the same memory as a.
+
+EX2=>
+    const a = {
+  name: "Agraj",
+  address: { city: "Delhi" }
+};
+
+const b = { ...a };
+
+b.address.city = "Mumbai";
+
+console.log(a.address.city);
+
+Answer: Mumbai
+
+By writing address: { ...a.address }, you are explicitly telling JavaScript:
+Create a new object for the address property.
+Copy the properties from a.address into this new object.
+
+
+
+EX=>4 const a = {
+  x: undefined
+};
+
+const b = JSON.parse(JSON.stringify(a));
+
+console.log(b);
+
+👉 Answer: {}
+
+👉 Why?
+undefined AND FUNCTION is ignored in JSON.
+*/

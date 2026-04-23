@@ -91,10 +91,12 @@ example---->
 };
 
 const fn = user.greet;
-fn(); // undefined ❌
+fn(); // undefined
 
 A function was originally part of an object,
  but when you call it separately, it no longer knows which object it belongs to
 So this becomes wrong (or undefined).
+
+
 
 */

@@ -1,0 +1,109 @@
+/*
+try...catch
+
+it’s used to handle runtime errors in JavaScript so your app doesn’t crash.
+SYNTAX--->
+try {
+  // code that may throw error
+} catch (err) {
+  // handle error
+} finally {
+  // always runs (optional)
+}
+
+How It Works (Important)
+Code inside try runs
+If error occurs 👉 execution jumps to catch
+Remaining code in try is skipped
+finally always runs (if present)
+try...catch only works for synchronous code for asynchronus you have to maske some changes------->NOTE
+
+AND for asynchronus code
+.catch() → Promise errors
+try/catch → with await
+fetch needs -> manual error check
+Promise.all -> fails fast
+allSettled -> is safer
+*/
+/*
+
+CUSTOM ERROR CLASSES
+👉 Your own error types created by extending Error
+
+✅ Better readability
+✅ Structured handling
+✅ Easy debugging
+✅ Clean architecture
+ 
+example try {
+  validate(16);
+} catch (e) {
+  if (e instanceof ValidationError) {
+    console.log("Validation issue");
+  } else {
+    console.log("Unknown error");
+  }
+}
+
+{it is just like defining error }
+
+
+Debounce
+What it does
+
+👉 Waits until no event happens for a given time, then runs function
+
+🔹 Where to Use Debounce
+
+example ==>
+    function debounce(fn, delay) {
+  let timer;
+
+  return function (...args) {
+    clearTimeout(timer); // cancel previous
+
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+  Only last call executes
+
+debouncedFn(1);
+debouncedFn(2);
+debouncedFn(3);
+
+👉 Output:
+
+3
+
+✅ Search bar
+✅ Input validation
+✅ Auto-save
+✅ Resize events
+
+
+2. Throttle 
+👉 “Allow execution only once every X milliseconds”
+
+example 
+function throttle(fn, limit) {
+  let lastCall = 0;
+
+  return function (...args) {
+    const now = Date.now();
+
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      fn.apply(this, args);
+    }
+  };
+}
+  throttledFn();
+throttledFn();
+throttledFn();
+
+👉 Output:
+
+Runs...wait...runs...
+*/

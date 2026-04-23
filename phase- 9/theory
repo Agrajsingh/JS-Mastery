@@ -1,0 +1,73 @@
+/*
+Memory Leak
+Memory is allocated but never released, even when it’s no longer needed
+
+Why Memory Leaks Are Dangerous
+
+❌ Increased RAM usage
+❌ Slower performance
+❌ App crashes
+❌ Browser tab freeze
+
+Common Causes of Memory Leaks
+1. Global Variables
+name = "Aman"; // ❌ no let/var/const
+
+👉 Stays forever in memory
+
+2. Closures Holding Memory
+function outer() {
+  let bigData = new Array(1000000).fill("data");
+
+  return function () {
+    console.log("Hello");
+  };
+}
+
+const fn = outer();
+
+👉 bigData stays in memory due to closure
+
+3. Unremoved Event Listeners
+button.addEventListener("click", () => {
+  console.log("Clicked");
+});
+
+👉 If button is removed but listener isn’t:
+
+❌ Memory leak
+4. Timers (setInterval)
+setInterval(() => {
+  console.log("Running");
+}, 1000);
+
+👉 Runs forever unless cleared
+
+5. DOM References
+let div = document.getElementById("box");
+
+👉 If removed from DOM but referenced:
+
+❌ Memory leak
+6. Detached DOM Nodes (🔥 Important)
+
+👉 DOM removed but JS still references it
+
+7. Caches Not Cleared
+let cache = {};
+cache["data"] = largeObject;
+
+👉 Keeps growing
+
+
+How Garbage Collector Works (Simplified)
+
+👉 Uses Mark and Sweep
+
+Mark reachable objects
+Remove unreachable ones
+
+👉 Problem:
+If something is still referenced → GC won’t remove it
+
+*/

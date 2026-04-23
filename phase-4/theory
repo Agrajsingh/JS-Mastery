@@ -1,0 +1,116 @@
+/*
+DEEP COPY AND SHALLOW COPY
+
+DEEP COPY ---> You copy the actual value (full independent clone)
+👉 A deep copy creates a completely new object
+👉 No shared references at any level
+
+EXAMPLE
+const obj1 = {
+  name: "Agraj",
+  address: {
+    city: "Delhi"
+  }
+};
+const obj2 = structuredClone(obj1); // deep copy
+obj2.address.city = "Mumbai";
+console.log(obj1.address.city); // ✅ Delhi (unchanged)
+
+obj1.address ───> Delhi
+obj2.address ───> Mumbai (separate copy)
+
+
+Shallow Copy----->
+👉 A shallow copy copies only the top-level properties
+👉 Nested objects are still shared (same reference)
+
+EXAMPLE
+const obj1 = {
+  name: "Agraj",
+  address: {
+    city: "Delhi"
+  }
+};
+const obj2 = { ...obj1 }; // shallow copy
+
+obj2.address.city = "Mumbai";
+console.log(obj1.address.city); // ❗ Mumbai (changed!)
+
+obj1.address  ─────┐
+                   ├──> SAME MEMORY
+obj2.address  ─────┘
+
+
+*/
+
+/*
+Event Loop
+❓ How does JS handle async things like setTimeout, API calls, promises?
+
+👉 Answer: Event Loop
+
+
+KEY RULE===>> 👉 Synchronous code > Microtasks > Macrotasks(PRIORITY ORDER)
+
+LIST OF MACROTASK
+
+setTimeout(): 
+
+setInterval(): 
+
+setImmediate()
+
+I/O Tasks: Filesystem operations, network requests, etc.
+
+UI Rendering: The browser’s internal process of drawing pixels on the screen.
+
+Event Listeners: Clicks, scrolls, and keypress events.
+
+Script execution: The initial loading of a <script> tag.
+
+LIST OF MICROTASK
+
+Promises: Specifically the .then(), .catch(), and .finally() callbacks.
+
+Async/Await: Since await is syntactic sugar for Promises, the code after an await behaves like a microtask.
+
+MutationObserver: Used to watch for changes in the DOM tree.
+
+queueMicrotask(): A manual way to add a task to this queue.
+
+##flow diagram how js handel task being single threaded
+
+Call Stack
+   ↓
+Web APIs (Timer, Fetch, DOM)
+   ↓
+Queues:
+   - Microtask Queue (Promises)
+   - Macrotask Queue (setTimeout)
+   ↓
+Event Loop:
+   - Run all microtasks
+   - Run one macrotask
+   - Repeat
+
+*/
+
+/*
+PROMISE CHAINING
+
+👉 Executing multiple async steps one after another
+👉 Passing results from one step to the next using .then()
+Promise → then → Promise → then → Promise {adding return statement is compulsory}
+EXAMPLE--->
+Promise.resolve(10)
+  .then((res) => res * 2)
+  .then((res) => res + 5)
+  .then((res) => console.log(res));
+  
+
+  ### ERROR HANDELING IN CHAINING IS DONE BY ADDINF TRY AND CATCH BLOCK
+
+
+  async await stude
+
+*/

@@ -1,0 +1,121 @@
+/*
+FETCH
+👉 Fetch is a built-in browser API (no installation needed) used to make HTTP requests.
+
+Example==>>
+fetch("https://api.example.com/data")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+  
+  How Fetch Works
+Returns a Promise
+First .then() → gives Response object
+You must manually convert:
+response.json() → for JSON
+response.text() → for text
+
+👉 Fetch does NOT reject on HTTP errors like 404 or 500
+❌ No built-in timeout
+
+✅ Pros of Fetch
+Built-in (no library needed)
+Modern & widely supported
+Works in browser + Node (with newer versions)
+❌ Cons of Fetch
+No automatic JSON parsing
+No automatic error handling
+No request timeout by default
+Slightly more verbose
+
+*/
+/*
+AXIOS
+Axios is a third-party library used to make HTTP requests.
+EXAMPLE ==>
+    import axios from "axios";
+
+axios.get("https://api.example.com/data")
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err));
+
+  👉 Axios automatically parses JSON
+  ✅ Automatically throws error for bad status
+Axios supports Interceptors
+ axios.interceptors.request.use(config => {
+  config.headers.Authorization = "Bearer token";
+  return config;
+});
+
+👉 Used for:
+
+Auth tokens
+Logging
+Global error handling
+
+*/
+/*
+REST
+
+REST is a way of designing APIs where resources are accessed using standard HTTP methods like GET, POST, PUT, and DELETE.
+
+
+
+
+| Method | Purpose          | Example    |
+| ------ | ---------------- | ---------- |
+| GET    | Fetch data       | `/users`   |
+| POST   | Create data      | `/users`   |
+| PUT    | Update full data | `/users/1` |
+| PATCH  | Update partial   | `/users/1` |
+| DELETE | Remove data      | `/users/1` |
+
+1. Client-Server Separation
+Client (frontend) and server (backend) are separate
+Frontend doesn’t care how backend works
+
+2. Stateless
+👉 Server does NOT store client state
+
+Each request must contain all info
+
+3. Cacheable
+Responses can be cached
+Improves performance
+
+4. Uses standard HTTP
+
+🔹Disadvantages
+
+ Over-fetching (extra data)
+ Under-fetching (multiple requests)
+Multiple endpoints
+
+
+GraphQL
+
+
+“GraphQL is an API technology where the client specifies exactly what data it needs, and the server returns only that data.
+
+🔹 Advantages
+
+ Fetch only required data
+ Single endpoint
+ No versioning
+ Strong typing
+ Faster for complex app
+
+🔹 Disadvantages
+
+ Hard caching
+ Heavy queries can slow server
+ Needs setup (schema + resolvers)
+
+ | Feature  | REST     | GraphQL  |
+| -------- | -------- | -------- |
+| Endpoint | Multiple | Single   |
+| Data     | Fixed    | Flexible |
+| Requests | Multiple | One      |
+| Control  | Server   | Client   |
+
+*/
